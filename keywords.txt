@@ -1,0 +1,48 @@
+﻿#######################################
+# Syntax Coloring Map   Ads1015_esp8266
+#######################################
+
+#######################################
+# Datatypes 		(KEYWORD1)
+#######################################
+Ads1015_esp8266		KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin			KEYWORD2
+selectInput		KEYWORD2
+selectGain		KEYWORD2
+selectRate		KEYWORD2
+readConversion		KEYWORD2
+
+#######################################
+# Constants 		(LITERAL1)
+#######################################
+MUX_DIF_0_1  		LITERAL1
+MUX_DIF_0_3  		LITERAL1
+MUX_DIF_1_3  		LITERAL1
+MUX_DIF_2_3  		LITERAL1
+MUX_SGL_0    		LITERAL1
+MUX_SGL_1    		LITERAL1
+MUX_SGL_2    		LITERAL1
+MUX_SGL_3    		LITERAL1
+FSR_6144   		LITERAL1
+FSR_4096   		LITERAL1
+FSR_2048   		LITERAL1
+FSR_1024   		LITERAL1
+FSR_0512   		LITERAL1
+FSR_0256   		LITERAL1
+DR_128			LITERAL1
+DR_250			LITERAL1
+DR_490			LITERAL1
+DR_920			LITERAL1
+DR_1600			LITERAL1
+DR_2400			LITERAL1
+DR_3300			LITERAL1
+LSB_6144   		LITERAL1
+LSB_4096   		LITERAL1
+LSB_2048   		LITERAL1
+LSB_1024   		LITERAL1
+LSB_0512   		LITERAL1
+LSB_0256   		LITERAL1
