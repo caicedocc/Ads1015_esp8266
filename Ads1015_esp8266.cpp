@@ -1,7 +1,7 @@
 /*
 **********************************************************
 ADS1015_ESP8266.cpp
-A library to use ADS1015 12-bit ADC with esp8266
+A library to use ADS1015 12-bit ADC along with esp8266
  created May 2019
  by Cesar Caicedo Caicedo
 
