@@ -1,6 +1,6 @@
 # Ads1015_esp8266
 
-A library to use ADS1015 12-bit ADC along with esp8266
+A library to use ADS1015 12-bit ADC along with esp8266 MCUs
 
 ## Notice
 
@@ -17,17 +17,13 @@ The ADS1015 is always operated in continuous conversion operating mode and compa
 
 ## Functions
 
-Providing you ```#include <Ads1015_esp8266.h>``` the library in your sketch then just instantiate an object of type:
-
-```
-Ads1015_esp8266 myName(uint8_t Address);
-```
-where Address is one of the following slave addresses:
+Providing you ```#include <Ads1015_esp8266.h>``` library in your sketch then just instantiate an object of type:
+```Ads1015_esp8266  myName(uint8_t Address);``` where Address is one of the following slave addresses:
 
 * 0x48	address pin of ADS1015 connected to GND
-* 0x49		pin connected to VCC
-* 0x50		pin connected to SDA
-* 0x51		pin connected to SCL
+* 0x49	      	pin connected to VCC
+* 0x50		      pin connected to SDA
+* 0x51		      pin connected to SCL
 
 then you will have the following five functions available:
 
