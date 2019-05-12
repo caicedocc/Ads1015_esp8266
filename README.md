@@ -18,7 +18,10 @@ The ADS1015 is always operated in continuous conversion operating mode and compa
 ## Functions
 
 Providing you ```#include <Ads1015_esp8266.h>``` library in your sketch then just instantiate an object of type:
-```Ads1015_esp8266  myName(uint8_t Address);``` where Address is one of the following slave addresses:
+
+```Ads1015_esp8266  myName(uint8_t Address);```
+
+where Address is one of the following slave addresses:
 
 * 0x48	address pin of ADS1015 connected to GND
 * 0x49	      	pin connected to VCC
@@ -31,6 +34,9 @@ then you will have the following five functions available:
 
 Explain how to run the automated tests for this system
 
+```
+Give an example
+```
 ### selectInput
 
 Explain what these tests test and why
