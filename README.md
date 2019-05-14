@@ -19,9 +19,9 @@ I2C software communication between master and slave is set at 400kHz clock speed
 
 ## Functions
 
-Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just instantiate an object of type:
+Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just create an object of type:
 
-`Ads1015_esp8266  myName(uint8_t Address);` where Address is one of the following slave addresses:
+`Ads1015_esp8266  whateverName(uint8_t Address);` where Address is one of the following slave addresses:
 
 - `0x48`	address pin of ADS1015 connected to GND
 - `0x49`	...pin connected to VCC
@@ -83,7 +83,7 @@ Example: Select input range of +/-1.024V `selectGain(FSR_1024);`
 
 ### selectRate
 
-Select the output data rate and conversion time by changing the internal sampling frecuency of the ADC modulator. At the end you have control of the _effective sampling rate_ of data obtained in your sketch which might vary of the selected data rate. It must be seen as a balance between precision and speed but you will not be able to obtain both at the same time.
+Select the conversion data rate in samples per second. However it rely on you the management of the _effective sampling rate_ that is the real speed at which data is aquired by your sketch.
 
 ```
 selectRate(uint8_t dr);
@@ -96,14 +96,23 @@ Where `dr` is one of the following definitions:
 - `DR_920`
 - `DR_1600`       (default)
 - `DR_2400`
-- `DR_3300`       3300 SPS
+- `DR_3300`
 
-Example: Select max data rate `selectRate(DR_3300);`
+Example: Select 3300 SPS data rate `selectRate(DR_3300);`
 
 ### readConversion
 
-Explain what these tests test and why
+This function returns a code of type `int16_t` which represent the signal measured at the selected analog input for a given amplifier gain.
 
 ```
-Give an example
+int16_t   readConversion();
 ```
+
+To convert this code into voltage you have to multiply it by the corresponding least significant bit size (LSB). This multiplier factor is stored in the following definitions:
+
+- `LSB_6144`      +/-6.144V
+- `LSB_4096`      +/-4.096V
+- `LSB_2048`      +/-2.048V
+- `LSB_1024`      +/-1.024V
+- `LSB_0512`      +/-0.512V
+- `LSB_0256`      +/-0.256V
