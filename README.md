@@ -13,7 +13,7 @@ You must install [brzo_i2c](https://github.com/pasko-zh/brzo_i2c) library in ord
 
 ## Fixed values
 
-The ADS1015 is always operated in continuous conversion operating mode and comparator disabled. For further information consult  [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
+The ADS1015 is always operated in continuous conversion mode and comparator disabled. For further information consult  [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
 
 I2C software communication between master and slave is set at 400kHz clock speed.
 
