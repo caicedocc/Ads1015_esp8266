@@ -116,3 +116,5 @@ To convert this code into voltage you have to multiply it by the corresponding l
 - `LSB_1024`      +/-1.024V
 - `LSB_0512`      +/-0.512V
 - `LSB_0256`      +/-0.256V
+
+**NOTICE**: Be careful to choose the same FSR used for the conversion.
