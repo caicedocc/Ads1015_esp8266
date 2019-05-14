@@ -117,4 +117,4 @@ To convert this code into voltage you have to multiply it by the corresponding l
 - `LSB_0512`      +/-0.512V
 - `LSB_0256`      +/-0.256V
 
-**NOTICE**: Be careful to choose the same FSR used by the function `selectGain`.
+**NOTICE**: Be careful to choose the same FSR used in the function `selectGain`.
