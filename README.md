@@ -116,6 +116,7 @@ To convert this code into voltage you have to multiply it by the corresponding l
 - `LSB_1024`      +/-1.024V
 - `LSB_0512`      +/-0.512V
 - `LSB_0256`      +/-0.256V
+
 **NOTICE**: Be careful to choose the same FSR used in the function `selectGain`.
  
-Example: Read the selected analog input and convert it into voltage `voltage = readConversion() * LSB_1024;`
+Example: Read the selected analog input and convert it into voltage `float voltage = readConversion() * LSB_1024;`
