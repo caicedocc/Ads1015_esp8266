@@ -5,7 +5,7 @@ A library to use ADS1015 12-bit ADC along with esp8266 MCUs.
 ## Notice
 
 This implementation uses the library [brzo_i2c](https://github.com/pasko-zh/brzo_i2c) instead of Wire for reliable I2C comunication at fast mode speeds.
-It makes the code dependent of esp8266 MCUs !!!
+It makes the code dependent of esp8266 MCUs.
 
 ## Prerequisites
 
@@ -19,16 +19,16 @@ I2C software communication between master and slave is set at 400kHz clock speed
 
 ## Functions
 
-Providing you ```#include <Ads1015_esp8266.h>``` library in your sketch then just instantiate an object of type:
+Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just instantiate an object of type:
 
-```Ads1015_esp8266  myName(uint8_t Address);``` where Address is one of the following slave addresses:
+`Ads1015_esp8266  myName(uint8_t Address);` where Address is one of the following slave addresses:
 
-* ```0x48```	address pin of ADS1015 connected to GND
-* ```0x49```	...pin connected to VCC
-* ```0x50```	...pin connected to SDA
-* ```0x51```	...pin connected to SCL
+- `0x48`	address pin of ADS1015 connected to GND
+- `0x49`	...pin connected to VCC
+- `0x50`	...pin connected to SDA
+- `0x51`	...pin connected to SCL
 
-then you will have five functions available: ```begin```, ```selectInput```, ```selectGain```, ```selectRate``` and ```readConversion```.
+then you will have five functions available: `begin`, `selectInput`, `selectGain`, `selectRate` and `readConversion`.
 
 ### begin
 
@@ -38,30 +38,30 @@ The very first function you must call in order to start continuous conversion an
 begin(uint8_t sda, uint8_t scl);
 ```
 Where
-* ```sda``` I2C data pin of your esp8266.
-* ```scl``` I2C clock pin...
+- `sda` I2C data pin of your esp8266.
+- `scl` I2C clock pin...
 
-Example: Start conversions and setup I2C communication using NodeMCU V1.0 ```begin(D2, D1);```
+Example: Start conversions and setup I2C communication using NodeMCU V1.0 `begin(D2, D1);`
 
 ### selectInput
 
-Select one analog input to convert by changing the configuration of input multiplexer (MUX). The ADS1015 features an MUX that allows two differential or four single-ended input measurements. WARNING: Analog input voltages must never exceed the limits given in [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
+Select one analog input to convert by changing the configuration of input multiplexer (MUX). The ADS1015 features an MUX that allows two differential or four single-ended input measurements. __WARNING__: Analog input voltages must never exceed the limits given in [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
 
 ```
 selectInput(uint8_t mux);
 ```
 
-Where ```mux``` is one of the following definitions:
-* ```MUX_DIF_0_1```   Differential AIP=0, AIN=1 (default)
-* ```MUX_DIF_0_3```   Differential AIP=0, AIN=3
-* ```MUX_DIF_1_3```   Differential AIP=1, AIN=3
-* ```MUX_DIF_2_3```   Differential AIP=2, AIN=3
-* ```MUX_SGL_0```     Single AIP=0, AIN=GND
-* ```MUX_SGL_1```     Single AIP=1, AIN=GND
-* ```MUX_SGL_2```     Single AIP=2, AIN=GND
-* ```MUX_SGL_3```     Single AIP=3, AIN=GND.
+Where `mux` is one of the following definitions:
+- `MUX_DIF_0_1`   Differential AIP=0, AIN=1 (default)
+- `MUX_DIF_0_3`   Differential AIP=0, AIN=3
+- `MUX_DIF_1_3`   Differential AIP=1, AIN=3
+- `MUX_DIF_2_3`   Differential AIP=2, AIN=3
+- `MUX_SGL_0`     Single AIP=0, AIN=GND
+- `MUX_SGL_1`     Single AIP=1, AIN=GND
+- `MUX_SGL_2`     Single AIP=2, AIN=GND
+- `MUX_SGL_3`     Single AIP=3, AIN=GND
 
-Example: Select analog differential input between pins A2+ and A3- ```selectInput(MUX_DIF_2_3);```
+Example: Select analog differential input between pins A2+ and A3- `selectInput(MUX_DIF_2_3);`
 
 ### selectGain
 
@@ -71,23 +71,35 @@ Select the full scale range (FSR) of measurements by changing the configuration 
 selectGain(uint8_t fsr);
 ```
 
-Where ```fsr``` is one of the following definitions:
-* ```FSR_6144```      +/-6.144V
-* ```FSR_4096```      +/-4.096V
-* ```FSR_2048```      +/-2.048V (default)
-* ```FSR_1024```      +/-1.024V
-* ```FSR_0512```      +/-0.512V
-* ```FSR_0256```      +/-0.256V
+Where `fsr` is one of the following definitions:
+- `FSR_6144`      +/-6.144V
+- `FSR_4096`      +/-4.096V
+- `FSR_2048`      +/-2.048V (default)
+- `FSR_1024`      +/-1.024V
+- `FSR_0512`      +/-0.512V
+- `FSR_0256`      +/-0.256V
 
-Example: Select input range of +/-1.024V ```selectGain(FSR_1024);```
+Example: Select input range of +/-1.024V `selectGain(FSR_1024);`
 
 ### selectRate
 
-Explain what these tests test and why
+Select the output data rate and conversion time by changing the internal sampling frecuency of the ADC modulator. At the end you have control of the _effective sampling rate_ of data obtained in your sketch which might vary of the selected data rate. It must be seen as a balance between precision and speed but you will not be able to obtain both at the same time.
 
 ```
-Give an example
+selectRate(uint8_t dr);
 ```
+
+Where `dr` is one of the following definitions:
+- `DR_128`        128 SPS
+- `DR_250`
+- `DR_490`
+- `DR_920`
+- `DR_1600`       (default)
+- `DR_2400`
+- `DR_3300`       3300 SPS
+
+Example: Select max data rate `selectRate(DR_3300);`
+
 ### readConversion
 
 Explain what these tests test and why
