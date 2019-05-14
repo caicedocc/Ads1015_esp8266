@@ -102,7 +102,7 @@ Example: Select 3300 SPS data rate `selectRate(DR_3300);`
 
 ### readConversion
 
-This function returns a code of type `int16_t` which represent the signal measured at the selected analog input for a given amplifier gain.
+This function returns a code of type `int16_t` which represent the amplitude of signal measured at selected analog input.
 
 ```
 int16_t   readConversion();
@@ -117,4 +117,4 @@ To convert this code into voltage you have to multiply it by the corresponding l
 - `LSB_0512`      +/-0.512V
 - `LSB_0256`      +/-0.256V
 
-**NOTICE**: Be careful to choose the same FSR used for the conversion.
+**NOTICE**: Be careful to choose the same FSR used by the function `selectGain`.
