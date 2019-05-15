@@ -87,7 +87,7 @@ _Example:_ Select input range of +/-1.024V `selectGain(FSR_1024);`
 ## selectRate
 
 Select conversion data rate in samples per second.  
-__NOTICE__ It rely on you the management of the _effective sampling rate_ that is the real speed at which data is acquired by your sketch.
+__NOTICE:__ It rely on you the management of the _effective sampling rate_ that is the real speed at which data is acquired by your sketch.
 
 ```
 selectRate(uint8_t dr);
