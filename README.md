@@ -20,7 +20,7 @@ You must install [brzo_i2c](https://github.com/pasko-zh/brzo_i2c) library in ord
 
 ## Functions
 
-Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just create an object of type:  
+Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just create an object of type  
 `Ads1015_esp8266  whateverName(uint8_t Address);` where Address is one of the following slave addresses:
 
 - `0x48`	address pin of ADS1015 connected to GND
