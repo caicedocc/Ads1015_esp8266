@@ -1,10 +1,12 @@
 # Ads1015_esp8266
 
-A library to use ADS1015 12-bit ADC along with esp8266 MCUs.
-
+A library to use ADS1015 12-bit ADC along with esp8266 MCUs.  
+Created May 2019  
+by Cesar Caicedo Caicedo  
+ 
 ## Notice
 
-This implementation uses the library [brzo_i2c](https://github.com/pasko-zh/brzo_i2c) instead of Wire for reliable I2C comunication at fast mode speeds.
+This implementation uses the library [brzo_i2c](https://github.com/pasko-zh/brzo_i2c) instead of Wire for reliable I2C comunication at fast mode speeds.  
 It makes the code dependent of esp8266 MCUs.
 
 ## Prerequisites
@@ -13,14 +15,12 @@ You must install [brzo_i2c](https://github.com/pasko-zh/brzo_i2c) library in ord
 
 ## Fixed values
 
-The ADS1015 is always operated in continuous conversion mode and comparator disabled. For further information consult  [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
-
-I2C software communication between master and slave is set at 400kHz clock speed.
+- The ADS1015 is always operated in continuous conversion mode and comparator disabled.  
+- I2C software communication between master and slave is set at 400kHz clock speed.  
 
 ## Functions
 
-Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just create an object of type:
-
+Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just create an object of type:  
 `Ads1015_esp8266  whateverName(uint8_t Address);` where Address is one of the following slave addresses:
 
 - `0x48`	address pin of ADS1015 connected to GND
@@ -41,11 +41,11 @@ Where
 - `sda` I2C data pin of your esp8266.
 - `scl` I2C clock pin...
 
-Example: Start conversions and setup I2C communication using NodeMCU V1.0 `begin(D2, D1);`
+_Example:_ Start conversions and setup I2C communication using NodeMCU V1.0 `begin(D2, D1);`
 
 ### selectInput
 
-Select one analog input to convert by changing the configuration of input multiplexer (MUX). The ADS1015 features an MUX that allows two differential or four single-ended input measurements. __WARNING__: Analog input voltages must never exceed the limits given in [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
+Select one analog input to convert by changing the configuration of input multiplexer (MUX). The ADS1015 features an MUX that allows two differential or four single-ended input measurements. __WARNING__: Analog input voltages must never exceed limits given in [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
 
 ```
 selectInput(uint8_t mux);
@@ -56,12 +56,12 @@ Where `mux` is one of the following definitions:
 - `MUX_DIF_0_3`   Differential AIP=0, AIN=3
 - `MUX_DIF_1_3`   Differential AIP=1, AIN=3
 - `MUX_DIF_2_3`   Differential AIP=2, AIN=3
-- `MUX_SGL_0`     Single AIP=0, AIN=GND
-- `MUX_SGL_1`     Single AIP=1, AIN=GND
-- `MUX_SGL_2`     Single AIP=2, AIN=GND
-- `MUX_SGL_3`     Single AIP=3, AIN=GND
+- `MUX_SGL_0`     Single-ended AIP=0, AIN=GND
+- `MUX_SGL_1`     Single-ended AIP=1, AIN=GND
+- `MUX_SGL_2`     Single-ended AIP=2, AIN=GND
+- `MUX_SGL_3`     Single-ended AIP=3, AIN=GND
 
-Example: Select analog differential input between pins A2+ and A3- `selectInput(MUX_DIF_2_3);`
+_Example:_ Select analog differential input between pins A2+ and A3- `selectInput(MUX_DIF_2_3);`
 
 ### selectGain
 
@@ -79,7 +79,7 @@ Where `fsr` is one of the following definitions:
 - `FSR_0512`      +/-0.512V
 - `FSR_0256`      +/-0.256V
 
-Example: Select input range of +/-1.024V `selectGain(FSR_1024);`
+_Example:_ Select input range of +/-1.024V `selectGain(FSR_1024);`
 
 ### selectRate
 
@@ -98,7 +98,7 @@ Where `dr` is one of the following definitions:
 - `DR_2400`
 - `DR_3300`
 
-Example: Select 3300 SPS data rate `selectRate(DR_3300);`
+_Example:_ Select 3300 SPS data rate `selectRate(DR_3300);`
 
 ### readConversion
 
@@ -117,6 +117,5 @@ To convert this code into voltage you have to multiply it by the corresponding l
 - `LSB_0512`      +/-0.512V
 - `LSB_0256`      +/-0.256V
 
-**NOTICE**: Be careful to choose the same FSR used in the function `selectGain`.
- 
-Example: Read the selected analog input and convert it into voltage `float voltage = readConversion() * LSB_1024;`
+__NOTICE:__ Be careful to choose the same FSR used in the function `selectGain`.  
+_Example:_ Read the selected analog input and convert it into voltage `float voltage = readConversion() * LSB_1024;`
