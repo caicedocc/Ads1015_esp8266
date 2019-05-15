@@ -45,8 +45,8 @@ _Example:_ Start conversions and setup I2C communication using NodeMCU V1.0 `beg
 
 ## selectInput
 
-Select one analog input to convert by changing configuration of input multiplexer (MUX).  
-The ADS1015 features an MUX that allows two differential or four single-ended input measurements.  
+Select one analog input to convert by changing configuration of the input multiplexer (MUX).  
+The MUX allows two differential or four single-ended input measurements.  
 __WARNING__: Analog input voltages must never exceed limits given in [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
 
 ```
