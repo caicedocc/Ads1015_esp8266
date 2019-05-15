@@ -30,7 +30,7 @@ Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just cr
 
 then you will have five functions available: `begin`, `selectInput`, `selectGain`, `selectRate` and `readConversion`.
 
-### begin
+## begin
 
 The very first function you must call in order to start continuous conversion and correctly setup software I2C comunication with the slave ADS1015.
 
@@ -43,7 +43,7 @@ Where
 
 _Example:_ Start conversions and setup I2C communication using NodeMCU V1.0 `begin(D2, D1);`
 
-### selectInput
+## selectInput
 
 Select one analog input to convert by changing the configuration of input multiplexer (MUX).  
 The ADS1015 features an MUX that allows two differential or four single-ended input measurements.  
@@ -65,7 +65,7 @@ Where `mux` is one of the following definitions:
 
 _Example:_ Select analog differential input between pins A2+ and A3- `selectInput(MUX_DIF_2_3);`
 
-### selectGain
+## selectGain
 
 Select the full scale range (FSR) of measurements by changing the configuration of the programmable gain amplifier (PGA).  
 The PGA offers six input ranges from ±256 mV to ±6.144 V.
@@ -84,7 +84,7 @@ Where `fsr` is one of the following definitions:
 
 _Example:_ Select input range of +/-1.024V `selectGain(FSR_1024);`
 
-### selectRate
+## selectRate
 
 Select the conversion data rate in samples per second.  
 __NOTICE__ It rely on you the management of the _effective sampling rate_ that is the real speed at which data is acquired by your sketch.
@@ -104,7 +104,7 @@ Where `dr` is one of the following definitions:
 
 _Example:_ Select 3300 SPS data rate `selectRate(DR_3300);`
 
-### readConversion
+## readConversion
 
 This function returns a code of type `int16_t` which represent the amplitude of signal measured at the selected analog input.
 
