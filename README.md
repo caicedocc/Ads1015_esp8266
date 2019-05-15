@@ -45,7 +45,9 @@ _Example:_ Start conversions and setup I2C communication using NodeMCU V1.0 `beg
 
 ### selectInput
 
-Select one analog input to convert by changing the configuration of input multiplexer (MUX). The ADS1015 features an MUX that allows two differential or four single-ended input measurements. __WARNING__: Analog input voltages must never exceed limits given in [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
+Select one analog input to convert by changing the configuration of input multiplexer (MUX).  
+The ADS1015 features an MUX that allows two differential or four single-ended input measurements.  
+__WARNING__: Analog input voltages must never exceed limits given in [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
 
 ```
 selectInput(uint8_t mux);
@@ -65,7 +67,8 @@ _Example:_ Select analog differential input between pins A2+ and A3- `selectInpu
 
 ### selectGain
 
-Select the full scale range (FSR) of measurements by changing the configuration of the programmable gain amplifier (PGA). The PGA offers six input ranges from ±256 mV to ±6.144 V.
+Select the full scale range (FSR) of measurements by changing the configuration of the programmable gain amplifier (PGA).  
+The PGA offers six input ranges from ±256 mV to ±6.144 V.
 
 ```
 selectGain(uint8_t fsr);
@@ -83,7 +86,8 @@ _Example:_ Select input range of +/-1.024V `selectGain(FSR_1024);`
 
 ### selectRate
 
-Select the conversion data rate in samples per second. However it rely on you the management of the _effective sampling rate_ that is the real speed at which data is aquired by your sketch.
+Select the conversion data rate in samples per second.  
+__NOTICE__ It rely on you the management of the _effective sampling rate_ that is the real speed at which data is acquired by your sketch.
 
 ```
 selectRate(uint8_t dr);
@@ -108,7 +112,8 @@ This function returns a code of type `int16_t` which represent the amplitude of 
 int16_t   readConversion();
 ```
 
-To convert this code into voltage you have to multiply it by the corresponding least significant bit size (LSB). This multiplier factor is stored in the following definitions:
+To convert this code into voltage you have to multiply by its corresponding least significant bit size (LSB).  
+This multiplier factor is stored in the following definitions:
 
 - `LSB_6144`      +/-6.144V
 - `LSB_4096`      +/-4.096V
@@ -117,5 +122,5 @@ To convert this code into voltage you have to multiply it by the corresponding l
 - `LSB_0512`      +/-0.512V
 - `LSB_0256`      +/-0.256V
 
+_Example:_ Read the selected analog input and convert it into voltage `float voltage = readConversion() * LSB_1024;`  
 __NOTICE:__ Be careful to choose the same FSR used in the function `selectGain`.  
-_Example:_ Read the selected analog input and convert it into voltage `float voltage = readConversion() * LSB_1024;`
