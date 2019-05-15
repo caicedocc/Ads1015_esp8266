@@ -45,7 +45,7 @@ _Example:_ Start conversions and setup I2C communication using NodeMCU V1.0 `beg
 
 ## selectInput
 
-Select one analog input to convert by changing the configuration of input multiplexer (MUX).  
+Select one analog input to convert by changing configuration of input multiplexer (MUX).  
 The ADS1015 features an MUX that allows two differential or four single-ended input measurements.  
 __WARNING__: Analog input voltages must never exceed limits given in [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
 
@@ -106,7 +106,7 @@ _Example:_ Select 3300 SPS data rate `selectRate(DR_3300);`
 
 ## readConversion
 
-This function returns a code of type `int16_t` which represent the amplitude of signal measured at the selected analog input.
+This function returns a code of type `int16_t` which represent the amplitude of signal measured at selected analog input.
 
 ```
 int16_t   readConversion();
