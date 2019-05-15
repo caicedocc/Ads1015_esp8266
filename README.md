@@ -67,7 +67,7 @@ _Example:_ Select analog differential input between pins A2+ and A3- `selectInpu
 
 ## selectGain
 
-Select the full scale range (FSR) of measurements by changing the configuration of the programmable gain amplifier (PGA).  
+Select full scale range (FSR) of measurements by changing configuration of the programmable gain amplifier (PGA).  
 The PGA offers six input ranges from ±256 mV to ±6.144 V.
 
 ```
@@ -86,7 +86,7 @@ _Example:_ Select input range of +/-1.024V `selectGain(FSR_1024);`
 
 ## selectRate
 
-Select the conversion data rate in samples per second.  
+Select conversion data rate in samples per second.  
 __NOTICE__ It rely on you the management of the _effective sampling rate_ that is the real speed at which data is acquired by your sketch.
 
 ```
