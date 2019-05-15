@@ -7,7 +7,7 @@ A library to use ADS1015 12-bit ADC along with esp8266
 
 Notice: This implementation uses the library brzo_i2c instead
 of Wire for reliable I2C comunication at fast mode speeds.
-This makes the code dependent of esp8266 MCUs !!!
+It makes the code dependent of esp8266 MCUs !!!
 
 Fixed values: Operating mode = continuous conversion
               Comparator     = disabled
