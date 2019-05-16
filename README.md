@@ -87,7 +87,7 @@ _Example:_ Select input range of +/-1.024V `selectGain(FSR_1024);`
 ## selectRate
 
 Select conversion data rate in samples per second.  
-__NOTICE:__ It rely on you the management of the _effective sampling rate_ that is the real speed at which data is acquired by your sketch.
+__NOTICE:__ It relies on you the management of the _effective sampling rate_ that is the real speed at which data is acquired by your sketch.
 
 ```
 selectRate(uint8_t dr);
@@ -106,13 +106,13 @@ _Example:_ Select 3300 SPS data rate `selectRate(DR_3300);`
 
 ## readConversion
 
-This function returns a code of type `int16_t` which represent the amplitude of signal measured at selected analog input.
+This function returns a number of type `int16_t` which represents the amplitude of signal measured at selected analog input.
 
 ```
 int16_t   readConversion();
 ```
 
-To convert this code into voltage you have to multiply by its corresponding least significant bit size (LSB).  
+To convert this number into voltage you have to multiply it by its corresponding least significant bit size (LSB).  
 This multiplier factor is stored in the following definitions:
 
 - `LSB_6144`      +/-6.144V
