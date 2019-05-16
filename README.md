@@ -122,5 +122,5 @@ This multiplier factor is stored in the following definitions:
 - `LSB_0512`      +/-0.512V
 - `LSB_0256`      +/-0.256V
 
-_Example:_ Read the selected analog input and convert it into voltage `float voltage = readConversion() * LSB_1024;`  
+_Example:_ Read the selected analog input, convert it to Volts and store it in a variable called voltage `float voltage = whateverName.readConversion() * LSB_1024;`  
 __NOTICE:__ Be careful to choose the same FSR used in the function `selectGain`.  
