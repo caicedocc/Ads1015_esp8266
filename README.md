@@ -47,6 +47,7 @@ _Example:_ Start conversions and setup I2C communication using NodeMCU V1.0 `beg
 
 Select one analog input to convert by changing configuration of the input multiplexer (MUX).  
 The MUX allows two differential or four single-ended input measurements.  
+
 __WARNING__: Analog input voltages must never exceed limits given in [ADS1015 datasheet](http://www.ti.com/lit/gpn/ADS1015).
 
 ```
@@ -87,6 +88,7 @@ _Example:_ Select input range of +/-1.024V `selectGain(FSR_1024);`
 ## selectRate
 
 Select conversion data rate in samples per second.  
+
 __NOTICE:__ It relies on you the management of the _effective sampling rate_ that is the real speed at which data is acquired by your sketch.
 
 ```
@@ -123,5 +125,7 @@ This multiplier factor is stored in the following definitions:
 - `LSB_0256`      +/-0.256V
 
 _Example:_ Read the previously selected analog input, convert it to Volts and store the result in a variable called `voltage`  
+
 `float voltage = whateverName.readConversion() * LSB_1024;`  
+
 __NOTICE:__ Be careful to choose the same FSR used in the function `selectGain` for the LSB. For example the corresponding multiplier for a `FSR_4096` is `LSB_4096`.  
