@@ -1,6 +1,6 @@
 /*
-  This example shows the effective sampling rate after reading
-  1000 samples in one single ended ADS1015 analog channel.
+  This example shows the effective sampling rate reading
+  one single ended ADS1015 analog channel.
   created May 2019
   by Cesar Caicedo Caicedo
 
@@ -38,9 +38,6 @@
 */
 
 #include <Ads1015_esp8266.h>
-unsigned long oldT;
-unsigned long newT;
-int result;
 Ads1015_esp8266 myADC(0x48);                // slave address pin connected to GND
 
 void setup()
@@ -49,20 +46,22 @@ void setup()
   myADC.begin(D2, D1);                      // SDA = D2, SCL = D1 (nodeMCU v1.0)
   myADC.selectInput(MUX_SGL_3);             // analog input A3 single ended
   myADC.selectGain(FSR_4096);               // amplifier scale range +/-4.096V
-  myADC.selectRate(DR_3300);                // max sampling rate 3300 sps
+  myADC.selectRate(DR_3300);                // max sampling rate 3300 SPS
 }
 
 void loop()
 {
-  Serial.println("Start reading 1000 samples...");
-  oldT = millis();
-  for (int i = 0; i < 1000; i++)
+  int result;
+  int samples = 0;
+  Serial.println("Start reading samples...");
+  unsigned long timer = millis();
+  while (millis() - timer < 1000)
   {
     result = myADC.readConversion();
+    samples++;
   }
-  newT = millis();
   Serial.print("Effective sample rate (SPS)= ");
-  Serial.println(1000000L / (newT - oldT));
+  Serial.println(samples);
   Serial.print("Last voltage (Volts)= ");
   Serial.println(result * LSB_4096);        // corresponding multiplier for +/-4.096V
   Serial.println();
