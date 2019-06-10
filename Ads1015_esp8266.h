@@ -1,15 +1,15 @@
 /*
 **********************************************************
 ADS1015_ESP8266.h
-A library to use ADS1015 12-bit ADC along with esp8266
+ A library to use ADS1015 12-bit ADC along with esp8266
  created May 2019
  by Cesar Caicedo Caicedo
 
 Notice: This implementation uses the library brzo_i2c instead
 of Wire for reliable I2C comunication at fast mode speeds.
-It makes the code dependent of esp8266 MCUs !!!
+This makes the code dependent of esp8266 MCUs.
 
-Fixed values: Operating mode = continuous conversion
+Fixed values: Operating mode = single conversion
               Comparator     = disabled
 **********************************************************
 */
@@ -41,7 +41,7 @@ Fixed values: Operating mode = continuous conversion
 #define DR_920       (0b01100000)
 #define DR_1600      (0b10000000)  // (default)
 #define DR_2400      (0b10100000)
-#define DR_3300      (0b11000000)
+#define DR_3300      (0b11100000)
 #define DR_CLEAR     (0b00011111)
 
 //---------- Corresponding multiplier in Volts (V) ---------------
