@@ -20,7 +20,7 @@ You must install [brzo_i2c](https://github.com/pasko-zh/brzo_i2c) library in ord
 
 ## Functions
 
-Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just create an object of type  
+Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just instantiate an object of type  
 `Ads1015_esp8266  whateverName(uint8_t Address);` where Address is one of the following slave addresses:
 
 - `0x48`	address pin of ADS1015 connected to GND
@@ -28,11 +28,11 @@ Providing you `#include <Ads1015_esp8266.h>` library in your sketch then just cr
 - `0x50`	...pin connected to SDA
 - `0x51`	...pin connected to SCL
 
-then you will have five functions available: `begin`, `selectInput`, `selectGain`, `selectRate` and `readConversion`.
+next you will have five functions available: `begin`, `selectInput`, `selectGain`, `selectRate` and `readConversion`.
 
 ## begin
 
-The very first function you must call in order to start continuous conversion and correctly setup software I2C comunication with the slave ADS1015.
+The very first function you must call in order to setup software I2C comunication with the slave ADS1015.
 
 ```
 begin(uint8_t sda, uint8_t scl);
@@ -41,7 +41,7 @@ Where
 - `sda` I2C data pin of your esp8266.
 - `scl` I2C clock pin...
 
-_Example:_ Start conversions and setup I2C communication using NodeMCU V1.0 `begin(D2, D1);`
+_Example:_ Setup I2C communication using NodeMCU V1.0 `begin(D2, D1);`
 
 ## selectInput
 
