@@ -1,10 +1,10 @@
 /*
 **********************************************************
-ADS1015_ESP8266.h
+@file ADS1015_ESP8266.h
  A library to use ADS1015 12-bit ADC along with esp8266
- created May 2019
- by Cesar Caicedo Caicedo
-
+@date May 2019
+@author Cesar Caicedo Caicedo
+@license MIT
 Notice: This implementation uses the library brzo_i2c instead
 of Wire for reliable I2C comunication at fast mode speeds.
 This makes the code dependent of esp8266 MCUs.
@@ -13,6 +13,9 @@ Fixed values: Operating mode = single conversion
               Comparator     = disabled
 **********************************************************
 */
+
+#ifndef ADS1015_ESP8266_H
+#define ADS1015_ESP8266_H
 
 //---------- Input multiplexer configuration ---------------------
 #define MUX_DIF_0_1  (0b00000000)  // Differential AIP=0, AIN=1 (default)
@@ -69,3 +72,4 @@ class Ads1015_esp8266
     void      selectRate(uint8_t dr);
     int16_t   readConversion(void);
 };
+#endif
