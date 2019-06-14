@@ -1,10 +1,10 @@
 /*
 **********************************************************
-ADS1015_ESP8266.cpp
+@file ADS1015_ESP8266.cpp
  A library to use ADS1015 12-bit ADC along with esp8266
- created May 2019
- by Cesar Caicedo Caicedo
-
+@date May 2019
+@author Cesar Caicedo Caicedo
+@license MIT
 Notice: This implementation uses the library brzo_i2c instead
 of Wire for reliable I2C comunication at fast mode speeds.
 This makes the code dependent of esp8266 MCUs.
